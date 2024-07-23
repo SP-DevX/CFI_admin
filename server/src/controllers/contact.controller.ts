@@ -66,7 +66,6 @@ export const resolve = asyncHandler(async (req: Request, res: Response) => {
         await mailer(email, `Your query is resolved`, resMessage)
     }
     return res.status(201).json({ message: "Solution is Saved successfully" });
-
 })
 
 export const deleteQuery = asyncHandler(async (req: Request, res: Response) => {

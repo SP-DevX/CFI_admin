@@ -32,7 +32,6 @@ app.use('/api/gallery', gallery);
 app.use('/api/members', member); 
 app.use('/api/notice', notice);
 app.use('/api/project', project);
-app.use('/api/stock', stock);
-app.get('/', (req, res) => { res.status(200).json("hello nice to meet you") })
+app.use('/api/stock', stock); 
 
 app.listen(port, () => console.log('listening on port ' + port));

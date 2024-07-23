@@ -156,7 +156,7 @@ const MembersModal: FC<pros> = ({ openModal, closedModal, fields, isUpdate, sele
                                         type="submit"
                                         className="button w-36 bg-green-500"
                                     >
-                                        Add member
+                                        {isUpdate? "Update" : "Add Member"}
                                     </Button>
                                     <button
                                         onClick={handleReset}
