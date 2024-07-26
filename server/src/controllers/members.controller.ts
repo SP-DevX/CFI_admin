@@ -8,6 +8,12 @@ export const getAllMembers = asyncHandler(async (req: Request, res: Response) =>
     return res.status(200).json({ members });
 })
 
+export const getAlumniMembers = asyncHandler(async (req: Request, res: Response) => {
+    const year = new Date().getFullYear(); 
+    const members = await Member.find({ year: { $lte: String(year) } }).select("year");
+    return res.status(200).json({ members });
+}) 
+
 export const getMemberByYear = asyncHandler(async (req: Request, res: Response) => {
     const { year } = req.params;
     const members = await Member.find({ year });

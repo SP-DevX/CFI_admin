@@ -24,6 +24,7 @@ import member from "./routers/members.routes"
 import notice from "./routers/notice.routes"
 import project from "./routers/project.routes"
 import stock from "./routers/stock.routes"
+import review from "./routers/review.routes"
 
 app.use('/api', certificate);
 app.use('/api/contact', contact);
@@ -31,7 +32,8 @@ app.use('/api/event', event);
 app.use('/api/gallery', gallery);
 app.use('/api/members', member); 
 app.use('/api/notice', notice);
-app.use('/api/project', project);
+app.use('/api/projects', project);
 app.use('/api/stock', stock); 
+app.use('/api/review', review)
 
 app.listen(port, () => console.log('listening on port ' + port));

@@ -1,4 +1,5 @@
-import mongoose from 'mongoose'
+
+import mongoose from 'mongoose';
 
 const eventsSchema = new mongoose.Schema({
     eventId: String,
@@ -15,7 +16,11 @@ const eventsSchema = new mongoose.Schema({
     rules: String,
     shortName: String,
     venue: String,
-},{timestamps: true})
+    isCompleted: {
+        type: Boolean,
+        default: false
+    }
+}, { timestamps: true });
 
 const Event = mongoose.models.Event || mongoose.model('Event', eventsSchema);
-export default Event
+export default Event;
