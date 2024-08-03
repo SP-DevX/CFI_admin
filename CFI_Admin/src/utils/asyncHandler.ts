@@ -12,7 +12,7 @@ const useAsyncHandler = <T extends (...args: any[]) => Promise<any>>(fn: T) => {
             return await fn(...args);
         } catch (error: any) {
             console.error(error);
-            toast.error(error.response.message || error.response.data.message || "Internal Server Error");
+            toast.error(error?.response?.message || error?.response?.data?.message || "Internal Server Error");
         } finally {
             dispatch(setLoading(false));
         }

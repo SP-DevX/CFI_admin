@@ -18,8 +18,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
-import { useAsyncHandler } from "@/utils/asyncHandler";
-import { membersType, resMembersType } from "@/index";
+import { useAsyncHandler } from "@/utils/asyncHandler"; 
 const MembersModal = dynamic(() => import('@/Components/modals/MembersModal'), { ssr: false })
 
 

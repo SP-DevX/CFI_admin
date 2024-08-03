@@ -10,8 +10,7 @@ import { deleteStorage, departments, positions, years } from '@/utils/data';
 import ImageCropUpload from '../common/CroppedImage';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa6';
 import { RxCross1 } from 'react-icons/rx';
-import toast from 'react-hot-toast';
-import { membersType } from '@/index';
+import toast from 'react-hot-toast'; 
 import Image from 'next/image';
 
 type pros = {

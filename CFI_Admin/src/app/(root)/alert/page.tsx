@@ -18,8 +18,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { HiCheck } from "react-icons/hi2";
 import { useAsyncHandler } from "@/utils/asyncHandler";
-import dynamic from "next/dynamic";
-import { contactResType } from "@/index";
+import dynamic from "next/dynamic"; 
 
 const Alert = () => {
     const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }), []);

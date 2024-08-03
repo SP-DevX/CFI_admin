@@ -66,7 +66,7 @@ declare interface galleryType {
     photo: string
 }
 
-export interface EventsItemsType {
+declare interface EventsItemsType {
     _id?: string;
     eventId: string;
     date: string;
@@ -82,4 +82,32 @@ export interface EventsItemsType {
     rules: string;
     shortName: string; 
     venue: string;
+    isCompleted: boolean;
+}
+declare interface teamMembersType {
+    name: string
+    phone: string
+    branch: string
+    year: string
+}
+declare interface eventRegistrationType {
+    eventId: string,
+    eventName: string,
+    teamName: string
+    teamLogo: string
+    projectName: string
+    projectDescription: string
+    leaderName: string
+    phone: string
+    email: string
+    leaderBranch: string,
+    leaderYear: string,
+    members: teamMembersType[]
+}
+declare interface registerTeamsType extends eventRegistrationType {
+    _id: string
+    isApproved: boolean
+    positions: string
+    prize: string
+    message: string
 }

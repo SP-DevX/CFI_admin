@@ -9,8 +9,7 @@ import InputField from "@/Components/common/InputField";
 import { useRouter } from "next/navigation";
 import CommonLayout from "@/Components/auth/CommonLayout";
 import { validate } from "@/utils/ValidateSchema";
-import { useAsyncHandler } from "@/utils/asyncHandler";
-import { loginUserType } from "@/index";
+import { useAsyncHandler } from "@/utils/asyncHandler"; 
 
 const LogIn: React.FC = () => { 
     const router = useRouter(); 

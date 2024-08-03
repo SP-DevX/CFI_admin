@@ -2,8 +2,7 @@
 
 import Layout from "@/Components/common/CommonLayout";
 import ImageCropUpload from "@/Components/common/CroppedImage";
-import Loader from "@/Components/common/Loader";
-import { galleryType } from "@/index";
+import Loader from "@/Components/common/Loader"; 
 import { useAsyncHandler } from "@/utils/asyncHandler";
 import { deleteStorage } from "@/utils/data";
 import axios from "axios";
@@ -11,7 +10,7 @@ import { Button, Label, Modal, TextInput } from "flowbite-react";
 import Image from "next/image";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { MdDelete, MdDownload } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 const Gallery = () => {
     const [loading, setLoading] = useState(false);

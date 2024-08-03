@@ -5,8 +5,7 @@ import Layout from "@/Components/common/CommonLayout";
 import axios from "axios"; 
 import {useAsyncHandler } from "@/utils/asyncHandler";
 import MembersCard from "@/Components/members/MembersCard";
-import dynamic from "next/dynamic";
-import { membersType } from "@/index";
+import dynamic from "next/dynamic"; 
 const MembersModal = dynamic(() => import('@/Components/modals/MembersModal'), { ssr: false })
 
 const Alumni = () => {

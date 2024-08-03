@@ -5,8 +5,7 @@ import Layout from "@/Components/common/CommonLayout";
 import { TextInput } from "flowbite-react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import axios from "axios";
-import { deleteStorage } from "@/utils/data";
-import { EventsItemsType } from "@/index";
+import { deleteStorage } from "@/utils/data"; 
 import { useAsyncHandler } from "@/utils/asyncHandler";
 import dynamic from "next/dynamic";
 const EventCard = dynamic(() => import("@/Components/eventComp/EventCard"), { ssr: false });
@@ -32,6 +31,7 @@ const Events = () => {
         rules: "",
         shortName: "",
         venue: "",
+        isCompleted: false,
     });
     const [eventList, setEventList] = useState<EventsItemsType[]>([]);
 
@@ -52,6 +52,7 @@ const Events = () => {
             rules: "",
             shortName: "",
             venue: "",
+            isCompleted: false,
         });
         setOpenModal(false);
         setIsUpdate(false);

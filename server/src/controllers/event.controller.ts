@@ -9,7 +9,7 @@ export const getEventById = asyncHandler(async (req: Request, res: Response) => 
     const event = await Event.findById(id);
     if (!event) res.status(404).json({ message: "event not exists" });
     return res.status(201).json({ event });
-}) 
+})
 
 export const getEventByFields = asyncHandler(async (req: Request, res: Response) => {
     const events = await Event.find({})
@@ -47,8 +47,8 @@ export const updateEvent = asyncHandler(async (req: Request, res: Response) => {
 })
 
 export const markCompleted = asyncHandler(async (req: Request, res: Response) => {
-    const { _id } = req.body
-    await Event.findByIdAndUpdate(_id, { isCompleted: true }, { new: true });
+    const { id, isCompleted } = req.body
+    await Event.findByIdAndUpdate(id, { isCompleted }, { new: true });
     return res.status(201).json({ message: "Event is completed" });
 })
 
@@ -109,6 +109,11 @@ export const approveEventRegistration = asyncHandler(async (req: Request, res: R
     const { _id } = req.body
     await EventRegistration.findByIdAndUpdate(_id, { isApproved: true }, { new: true });
     return res.status(201).json({ message: "Event registration is approved" });
+})
+export const removeTeamFromEvent = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    await EventRegistration.findByIdAndDelete(id);
+    return res.status(201).json({ message: "Team is removed from event" });
 })
 
 export const getEventRegistration = asyncHandler(async (req: Request, res: Response) => {
