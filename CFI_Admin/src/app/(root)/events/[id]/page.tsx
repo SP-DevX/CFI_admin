@@ -43,7 +43,7 @@ const ParticularEvent = () => {
     });
 
     const getRegisterTeams = useAsyncHandler(async () => {
-        const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/event/register/teams`);
+        const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/event/register/teams/${id}`);
         setTeams(data);
     })
 
