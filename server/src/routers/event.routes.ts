@@ -5,6 +5,7 @@ import {
     eventRegister,
     getEventByFields,
     getEventById,
+    getEventNames,
     getEventRegistration,
     markCompleted,
     removeEvent,
@@ -21,6 +22,7 @@ router.route("/mark-completed").post(markCompleted);
 router.route("/add").post(addEvent);
 router.route("/remove").post(removeEvent);
 router.route("/update").post(updateEvent);
+router.route('/event/names').get(getEventNames);
 
 // // team registration
 router.route("/register").post(eventRegister);

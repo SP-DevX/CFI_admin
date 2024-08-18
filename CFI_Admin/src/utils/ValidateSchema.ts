@@ -30,7 +30,7 @@ export const stockValidate = Yup.object({
 
 export const validateEvents = Yup.object({
     shortName: Yup.string()
-        .max(20, "Short name must contain at max 20 characters")
+        .max(100, "Short name must contain at max 20 characters")
         .required("short name is required"),
     fullName: Yup.string().required("full name is required"),
     date: Yup.string().required("date is required"),

@@ -32,15 +32,15 @@ function Notice() {
 
     const resetAll = () => {
         setNoticeDetails({ title: "", description: "", date: "", link: "" });
-        setOpenModal(false); 
+        setOpenModal(false);
         setIsUpdate(false);
     };
 
-    const getAllNotices = useAsyncHandler(async () => {  
+    const getAllNotices = useAsyncHandler(async () => {
         const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/notice`);
         setAllNotices(data.allNotices);
     });
- 
+
     const deleteNotice = useAsyncHandler(async (value: NoticeType) => {
         await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/notice/remove`, value);
         if (value.link) await deleteStorage(value.link);
@@ -64,7 +64,7 @@ function Notice() {
                     isUpdate={isUpdate}
                 />
                 <div className="w-full px-6 py-8 z-10">
-                    {allNotices.length > 0 && allNotices ? (
+                    {allNotices && allNotices.length > 0 ? (
                         <Timeline>
                             {allNotices.map((item) => {
                                 const { _id, title, description, link, date } = item;

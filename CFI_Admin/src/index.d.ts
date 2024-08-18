@@ -111,3 +111,29 @@ declare interface registerTeamsType extends eventRegistrationType {
     prize: string
     message: string
 }
+
+declare interface reviewsType {
+    _id: string
+    name: string
+    profession: string
+    message: string
+    email: string
+    isAccepted: boolean
+}
+
+declare interface projectType {
+    _id: string
+    files: string[]
+    projectName: string
+    studentName: string
+    year: string
+    branch: string
+    isApproved: boolean
+}
+
+declare interface projectDetailsType extends projectType {
+    projectDescription: string
+    liveLink: string
+    mobile: string
+    college: string
+}

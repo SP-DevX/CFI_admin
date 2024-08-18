@@ -8,6 +8,10 @@ const reviewSchema = new Schema(
         email: String,
         profession: String,
         message: String,
+        isAccepted: {
+            type: Boolean,
+            default: false
+        }
     },
     { timestamps: true }
 );

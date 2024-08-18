@@ -4,9 +4,9 @@ import { addProject, allProjects, approvedProject, getProjectDetails, removeProj
 const router = express.Router();
 
 router.route('/').get(allProjects);
-router.route('/details/:id').get(getProjectDetails);
 router.route('/add').post(addProject);
-router.route('/remove/:id').post(removeProject);
-router.route('/approve/:id').post(approvedProject); 
+router.route('/details/:id').get(getProjectDetails);
+router.route('/remove/:id').delete(removeProject);
+router.route('/approve/:id').patch(approvedProject); 
 
 export default router;

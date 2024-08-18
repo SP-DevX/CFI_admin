@@ -9,8 +9,7 @@ export const getAllNotices = asyncHandler(async (req: Request, res: Response) =>
 
 export const addNotice = asyncHandler(async (req: Request, res: Response) => {
     const reqBody =  req.body
-    const { title } = reqBody;
-    console.log(reqBody)
+    const { title } = reqBody; 
     const isPresent = await Notice.findOne({ title });
     if (isPresent)
         return res.status(409).json({ message: "notice already exists" });

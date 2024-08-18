@@ -5,8 +5,8 @@ import { v4 } from "uuid";
 import { toast } from "react-hot-toast";
 
 
-export const positions: string[] = ['---Select---', 'Secretary', "Cashier", 'Head of Business Development', 'Project Management Head', "Web Lead", "Social Media Team", "Technical Team"]
-export const years: (string | number)[] = ['---Select---', 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+export const positions: string[] = ['---Select---', 'Secretary', "Cashier", 'Head of Business Development', 'Project Management Head', "Web Lead", "Social Media Team", "Technical Team", "Tech Head", "Stock Head","Content Head"]
+export const years: (string | number)[] = ['---Select---', 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,2026,2027,2028,2029,2030]
 export const departments: string[] = ['---Select---', 'CSE', 'IT', 'ECE', 'EE', 'ME', 'CE']
 export const socialIcons: string[] = ['---Select---', 'facebook', 'instagram', 'linkedin', 'twitter']
 export const eventCategories: string[] = ['---Select---', 'ICIC-2023', "ICIC-2024", "ICICIC-2025"]

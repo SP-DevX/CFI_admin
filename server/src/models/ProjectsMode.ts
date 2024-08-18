@@ -7,6 +7,7 @@ const projectSchema = new mongoose.Schema({
     liveLink: String,
     studentName: String,
     mobile: String,
+    email: String,
     branch: String,
     year: String,
     college: String,

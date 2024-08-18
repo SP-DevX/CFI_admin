@@ -30,8 +30,7 @@ const EventModal: FC<props> = ({
 }) => {
 
     const submitDetails =useAsyncHandler(async (values: EventsItemsType) => {
-        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/event/${isUpdate ? "update" : "add"}`, values);
-        console.log(data);
+        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/event/${isUpdate ? "update" : "add"}`, values); 
         closedModal();
     });
 

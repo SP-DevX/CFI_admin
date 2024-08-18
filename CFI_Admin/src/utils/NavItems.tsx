@@ -1,4 +1,4 @@
-import { MdSpaceDashboard } from "react-icons/md";
+import { MdReviews, MdSpaceDashboard } from "react-icons/md";
 import { GrAnnounce, GrGallery } from "react-icons/gr";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { FaGear } from "react-icons/fa6";
@@ -58,5 +58,10 @@ export const ListItems: ListItemsType[] = [
         name: "Alerts",
         link: "/alert",
         icon: <IoNotificationsCircleOutline size={20} />,
+    },
+    {
+        name: "Reviews",
+        link: "/reviews",
+        icon: <MdReviews size={20} />,
     },
 ]; 

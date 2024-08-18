@@ -21,11 +21,17 @@ type props = {
     }[];
 };
 
+type eventNames = {
+    shortName: string;
+    _id: string;
+};
+
 const Category = () => {
     const router = useRouter();
     const [category, setCategory] = useState("");
     const [openModal, setOpenModal] = useState(false);
     const [categoryList, setCategoryList] = useState<props[]>([]);
+    const [eventNames, setEventNames] = useState<eventNames[]>([]);
 
     const resetAll = () => {
         setCategory("");
@@ -58,8 +64,14 @@ const Category = () => {
         setCategoryList(data.list);
     });
 
+    const getEventNames = useAsyncHandler(async () => {
+        const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/event/event/names`);
+        setEventNames(data);
+    });
+
     useEffect(() => {
         allCategory();
+        getEventNames();
     }, [openModal]);
 
 
@@ -75,11 +87,28 @@ const Category = () => {
                 <Modal show={openModal} size={"lg"} onClose={() => setOpenModal(false)}>
                     <Modal.Header>Create Folder</Modal.Header>
                     <Modal.Body>
-                        <label htmlFor="folder">Enter the name</label>
+                        <label htmlFor="folder">
+                            Select certificate category
+                        </label>
+                        <select
+                            onChange={(e: any) => setCategory(e.target.value)}
+                            className="w-full block my-3 rounded-md   border-gray-400 mb-4"
+                        >
+                            <option value={''} >Select category</option>
+                            {eventNames.map((item, i) => (
+                                <option key={i} value={item.shortName}>
+                                    {item.shortName}
+                                </option>
+                            ))}
+                        </select>
+                        <h1 className="text-center text-gray-400 mb-2">OR</h1>
+                        <label htmlFor="folder">
+                            Write folder name
+                        </label>
                         <input
                             type="text"
                             placeholder="Folder name"
-                            className="w-full block my-3 rounded-md uppercase outline-none border-gray-400"
+                            className="w-full block mt-2 rounded-md uppercase outline-none border-gray-400"
                             value={category}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                                 setCategory(e.target.value)
@@ -110,14 +139,17 @@ const Category = () => {
                                         className="w-full object-contain cursor-pointer"
                                         onClick={() => router.push(`/certificate/${item.category}`)}
                                     />
-                                    <div className="flex items-center justify-between gap-x-3 px-2 py-3">
+                                    <div className=" my-1.5">
                                         <Link href={`/certificate/${item.category}`}>
-                                            <h1 className="text-blue-600 uppercase font-medium text-center text-sm ">
+                                            <h1 className="text-blue-600 uppercase font-medium text-center text-xs max-w-32 ">
                                                 {item.category}
                                             </h1>
                                         </Link>
-                                        <button className="text-red-500 text-lg" onClick={() => deleteFolder(item)}>
-                                            <MdDelete />
+                                    </div>
+                                    <div className="flex justify-center">
+                                        <button className="text-red-500 text-sm font-medium border border-red-500 rounded-md flex w-24 py-1 items-center justify-center gap-1 hover:bg-red-500 hover:text-white transition-all duration-300 ease-linear " onClick={() => deleteFolder(item)}>
+                                            <MdDelete size={16} />
+                                            Delete
                                         </button>
                                     </div>
                                 </div>

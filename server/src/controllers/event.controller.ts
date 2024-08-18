@@ -12,7 +12,7 @@ export const getEventById = asyncHandler(async (req: Request, res: Response) => 
 })
 
 export const getEventByFields = asyncHandler(async (req: Request, res: Response) => {
-    const events = await Event.find({})
+    const events = await Event.find({}).sort({ date: 1 });
     return res.status(200).json({ events });
 })
 
@@ -119,4 +119,9 @@ export const removeTeamFromEvent = asyncHandler(async (req: Request, res: Respon
 export const getEventRegistration = asyncHandler(async (req: Request, res: Response) => {
     const eventRegistration = await EventRegistration.find({})
     return res.status(200).json(eventRegistration);
+})
+
+export const getEventNames = asyncHandler(async (req: Request, res: Response) => {
+    const eventNames = await Event.find().select("shortName _id");
+    return res.status(200).json(eventNames);
 })

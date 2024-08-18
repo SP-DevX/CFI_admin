@@ -124,7 +124,7 @@ const ParticularEvent = () => {
                                 }
                             </div>
                             <div className="space-y-2">
-                                <div className="flex items-center gap-x-2 capitalize">
+                                <div className="flex   gap-x-2 capitalize">
                                     <h3 className="font-medium text-title mb-1">Venue:-</h3>
                                     <p>{eventDetails.venue}</p>
                                 </div>
