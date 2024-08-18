@@ -26,7 +26,7 @@ router.route('/event/names').get(getEventNames);
 
 // // team registration
 router.route("/register").post(eventRegister);
-router.route("/register/teams").get(getEventRegistration);
+router.route("/register/teams/:eventId").get(getEventRegistration);
 router.route("/register/teams/remove/:id").post(removeTeamFromEvent);
 router.route("/register/teams/approval").post(approveEventRegistration);
 export default router;

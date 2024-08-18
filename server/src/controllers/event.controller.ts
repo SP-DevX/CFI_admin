@@ -117,7 +117,8 @@ export const removeTeamFromEvent = asyncHandler(async (req: Request, res: Respon
 })
 
 export const getEventRegistration = asyncHandler(async (req: Request, res: Response) => {
-    const eventRegistration = await EventRegistration.find({})
+    const { eventId } = req.params;
+    const eventRegistration = await EventRegistration.find({ eventId })
     return res.status(200).json(eventRegistration);
 })
 
