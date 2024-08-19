@@ -13,7 +13,7 @@ interface inputTypes {
 }
 
 
-const InputField: React.FC<inputTypes> = ({ isInput = true, label, ...props }) => {
+const InputField: React.FC<inputTypes> = ({ isInput = true, type="text", label, ...props }) => {
     const [field, meta] = useField(props);
     return (
         <>
@@ -23,7 +23,7 @@ const InputField: React.FC<inputTypes> = ({ isInput = true, label, ...props }) =
                 </div>
                 {
                     isInput == true ?
-                        <TextInput className="!z-10" type="text" {...field} {...props} color={`${meta.touched && meta.error && "failure"}`} /> :
+                        <TextInput className="!z-10" type={type} {...field} {...props} color={`${meta.touched && meta.error && "failure"}`} /> :
                         <Textarea className="!z-10" rows={4} {...field} {...props} color={`${meta.touched && meta.error && "failure"}`} />
                 }
                 <ErrorMessage component={'div'} name={field.name} className="text-red-600" />
